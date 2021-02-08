@@ -1,0 +1,155 @@
+/***color palette
+fair-haired     bounty hunter   willow rosenburg    bayou          concrete
+#ede084         #f7a541         #e56542             #90ac83        #76767e
+***/
+/***general***/
+* {
+    box-sizing: border-box;
+}
+
+html {
+	background-color: #76767e;
+	padding: 0px;
+}
+
+body {
+  font-family:"Verdana", serif;
+  max-width: 1055px;
+  margin: auto;
+  background-color: #f7a541;
+}
+
+p, h1,h2,h3,h4,h5,h6 {
+  padding: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: #e56542;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #f7a541 ;
+}
+
+h2, footer, h3, p.caption {
+	text-align: center;
+}
+
+p#caption {
+	text-align: center;
+	width: 600px;
+	margin: auto;
+}
+
+images {
+	display: block;
+	width: 100%;
+	margin: auto;
+}
+
+p span {
+	font-style: italic;
+}
+
+h2, h3 {
+	color: #e56542;
+}
+
+footer{
+	padding-bottom: 15px;
+}
+
+div.slideshow {
+	width: 600px;
+	text-align:center;
+	margin:auto;
+}
+
+/***header***/
+
+header {
+  margin-top: -25px;
+	background: url(../images/master_sword_opt.jpg) no-repeat center;
+  background-size: 400px 222px;
+	background-color: #90ac83;
+  height: 222px;
+  text-align: center;
+	color: #e56542;
+	border-bottom: groove;
+	border-bottom-color: #e56542;
+	border-bottom-width: 2px;
+}
+
+header h1 {
+  vertical-align: middle;
+}
+
+/***navigation***/
+nav ul, nav li {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+  
+nav li{
+  height: 40px;
+  line-height: 40px;
+}
+
+nav a{
+  text-decoration: none;
+  display: block;
+  padding-left: 15px;
+	background-color: #ede084;
+}
+
+nav a:hover {
+  background-color: #90ac83 ;
+}
+
+nav a.current {
+  background: #76767e;
+  cursor: default;
+}
+
+nav li {
+  display: inline-block;
+  text-align: center;
+  width: 352px;
+  margin-right: -3px;
+  margin-left: -3px;
+}
+
+nav li.left {
+	margin-left: 0px;
+}
+nav li.right {
+	margin-right: -1px;
+}
+
+/*dropdown within nav*/
+.dropdown {
+	position: relative;
+}
+
+.dropdown_content{
+	display: none;
+	position: absolute;
+	background-color: #ede084;
+	box-shadow: 0px 2px 5px 2px #505050;
+	z-index: 1;
+}
+
+.dropdown:hover .dropdown_content{
+	display: block;
+}
+
+/***button***/
+button {
+	background-color: #90ac83;
+	border: 3px groove #76767e;
+	border-radius: 3px;
+	padding: 5px;
+}

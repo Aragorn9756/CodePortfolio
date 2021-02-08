@@ -1,0 +1,9 @@
+﻿  HW5_Bucket_Sort_Source.cpp
+c:\users\arago\documents\visual studio 2017\projects\hw 5 bucket sort\hw 5 bucket sort\hw5_bucket_sort_source.cpp(165): warning C4018: '<': signed/unsigned mismatch
+c:\users\arago\documents\visual studio 2017\projects\hw 5 bucket sort\hw 5 bucket sort\hw5_bucket_sort_source.cpp(257): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'const char *'
+c:\users\arago\documents\visual studio 2017\projects\hw 5 bucket sort\hw 5 bucket sort\hw5_bucket_sort_source.cpp(257): warning C4474: 'printf' : too many arguments passed for format string
+  c:\users\arago\documents\visual studio 2017\projects\hw 5 bucket sort\hw 5 bucket sort\hw5_bucket_sort_source.cpp(257): note: placeholders and their parameters expect 4 variadic arguments, but 5 were provided
+c:\users\arago\documents\visual studio 2017\projects\hw 5 bucket sort\hw 5 bucket sort\hw5_bucket_sort_source.cpp(270): warning C4474: 'printf' : too many arguments passed for format string
+  c:\users\arago\documents\visual studio 2017\projects\hw 5 bucket sort\hw 5 bucket sort\hw5_bucket_sort_source.cpp(270): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+  HW 5 Bucket Sort.vcxproj -> c:\users\arago\documents\visual studio 2017\Projects\HW 5 Bucket Sort\Debug\HW 5 Bucket Sort.exe
+  HW 5 Bucket Sort.vcxproj -> c:\users\arago\documents\visual studio 2017\Projects\HW 5 Bucket Sort\Debug\HW 5 Bucket Sort.pdb (Partial PDB)

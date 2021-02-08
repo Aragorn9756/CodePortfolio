@@ -1,0 +1,459 @@
+/*complementary color scheme
+bright orange   cinder orange    greyed-orange    yellow orange
+#FF4500         #E8541D          #AA5739          #FFAC07
+
+forest green
+#2A7F41
+*/
+* {
+    box-sizing: border-box;
+}
+body {
+  font-family:"Verdana", serif;
+  max-width: 1055px;
+  margin: auto;
+  background-color: black;
+  color: #F5D010;
+}
+
+p, h1,h2,h3,h4,h5,h6 {
+  padding: 15px;
+}
+
+.row p,.row h1,.row h2,.row h3,.row h4,.row h5,.row h6 {
+padding: 0;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+section.leading {
+  border-bottom: 3px ridge #FF4500;
+}
+
+ul.list {
+  list-style-image: url(images/bonfire_opt.jpg);
+}
+
+a {
+  text-decoration: none;
+  color: #FF4500;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #AA5739;
+}
+
+/***header***/
+
+header {
+  background: url(images/master_sword_opt.jpg) no-repeat center;
+  background-size: 400px 222px;
+  height: 222px;
+  text-align: center;
+}
+
+header h1 {
+  vertical-align: middle;
+}
+
+/***navigation***/
+nav ul, nav li {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+  
+nav li{
+  height: 40px;
+  line-height: 40px;
+}
+
+nav a{
+  text-decoration: none;
+  display: block;
+  padding-left: 15px;
+}
+
+nav a:hover {
+  background-color: #222222;
+}
+
+nav a.current {
+  background: #444444;
+  cursor: default;
+}
+
+nav li {
+  text-align: center;
+  width: 352px;
+	max-width:100%;
+  margin-right: -3px;
+  margin-left: -3px;
+}
+
+nav li.left {
+	margin-left: 0px;
+}
+nav li.right {
+	margin-right: -1px;
+}
+
+/*dropdown within nav*/
+.dropdown {
+	position: relative;
+}
+
+.dropdown_content{
+	display: none;
+	position: absolute;
+	background-color: black;
+	box-shadow: 0px 2px 5px 2px #F1F1F1;
+	z-index: 1;
+}
+
+.dropdown:hover .dropdown_content{
+	display: block;
+}
+
+/*first paragraph and pic on index page*/
+#welcome {
+  float: left;
+  margin: 0px 10px 10px 0px;
+  max-width: 90%;
+  height: auto;
+}
+
+div.first {
+  clear: left
+}
+
+/***images***/
+ img {
+	margin: 10px 15px;
+}
+
+img.left_floating {
+  float: left;
+}
+
+img.right_floating {
+  float: right;
+}
+
+h1 {
+  color: #E8541D;
+}
+
+/***headings***/
+h2.clear_left {
+  clear: left;
+}
+
+h2.clear_right {
+  clear: right;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 15px;
+  color: #E8541D;
+}
+
+/***movies table***/
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 8px;
+  border: groove 5px #FFAC07;
+}
+
+td h2 {
+  margin: -5px 0px -5px 0px;
+}
+
+#joker {
+  margin-left: 90px;
+}
+#castle {
+  margin-left: 65px
+}
+
+/***footer***/
+footer {
+  text-align: center;
+}
+
+/***For bloodborne mad lib***/
+.quote {
+	font-style: italic;
+	color: #bb0a1e;
+}
+
+p.quote{
+	text-align: center;
+}
+
+p span {
+	color: #bb0a1e;
+}
+
+section.mad_lib li {
+	margin-bottom: 10px;
+	list-style-image: url(images/moon_rune_opt.png);
+}
+
+section.mad_lib li label {
+	display: inline-block;
+	width: 200px;
+}
+
+section.mad_lib button {
+	background-color: #8A0707;/***add darker red***/
+	color: black;
+	font-weight: bold;
+	border: #bb0a1e groove; 
+	width: 1.5in;
+	padding: 5px 10px;
+	margin: 25px 4.75in 0in 4.75in;
+}
+
+input {
+	background-color: #8a0707;
+	border: #bb0a1e groove;
+}
+
+input:focus {
+	outline: none;
+	background-color: #bb0a1e
+}
+
+h2 #greeting {
+	text-align: center;
+}
+
+/***animations***/
+/*text*/
+#anim_txt_r {
+	transition: color 1s, font-size 1s;
+}
+
+#anim_txt_r:hover {
+	color: red;
+	font-size: 40px;
+}
+
+#anim_txt_o {
+	transition: color 1s, font-size 1s;
+}
+
+#anim_txt_o:hover {
+	color: orange;
+	font-size: 40px;
+}
+
+#anim_txt_y {
+	transition: color 1s, font-size 1s;
+}
+
+#anim_txt_y:hover {
+	color: yellow;
+	font-size: 40px;
+}
+
+#anim_txt_g {
+	transition: color 1s, font-size 1s;
+}
+
+#anim_txt_g:hover {
+	color: green;
+	font-size: 40px;
+}
+
+#anim_txt_b {
+	transition: color 1s, font-size 1s;
+}
+
+#anim_txt_b:hover {
+	color: blue;
+	font-size: 40px;
+}
+
+#anim_txt_i {
+	transition: color 1s, font-size 1s;
+}
+
+#anim_txt_i:hover {
+	color: indigo;
+	font-size: 40px;
+}
+
+#anim_txt_v {
+	transition: color 1s, font-size 1s;
+}
+
+#anim_txt_v:hover {
+	color: purple;
+	font-size: 40px;
+}
+
+section#anim_images {
+	height: 550px;
+}
+
+#mario {
+	float: right;
+	animation: redMush 3s linear 3s infinite alternate;
+	position: relative;
+}
+
+@keyframes redMush {
+	0%   {width: 500px;height: 544px; left: 0px; top: 0px;}
+	17%  {width: 360px;height: 392px; left: -140px; top: 152px;}
+	34%  {width: 375px;height: 408px; left: -125px; top: 136px;}
+	51%  {width: 235px;height: 256px; left: -265px; top: 288px;}
+	68%  {width: 250px;height: 272px; left: -250px; top: 272px;}
+	85%  {width: 110px;height: 120px; left: -390px; top: 424px;}
+	100% {width: 125px;height: 136px; left: -375px; top: 408px;}
+}
+
+#snitch{
+	position: relative;
+	animation: flying 3s infinite;
+	z-index: 1;
+}
+
+@keyframes flying {
+	0%   {left: 0px; top: 0px;}
+	20%  {left: 250px; top: 400px;}
+	40%  {left: -175px; top: 275px;}
+	60%  {left: 50px; top: -400px;}
+	80%  {left: 475px; top: 100px;}
+	100% {left: 0px; top: 0px;}
+}
+
+#pokeball {
+	position: relative;
+	float: left;
+	top: 150px;
+	animation: wiggle 3s linear infinite;
+}
+
+@keyframes wiggle {
+	0%   {transform: rotate(0deg);}
+	8%   {transform: rotate(-6deg);}
+	16%   {transform: rotate(6deg);}
+	25%   {transform: rotate(-6deg);}
+	33%   {transform: rotate(0deg);}
+	100% {transform: rotate(0deg);}
+}
+
+/***for use with images***/
+.float_left {
+	float: left;
+}
+
+.float_right {
+	float: right
+}
+
+.clear_left {
+	clear: left;
+}
+
+.clear_right {
+	clear: right;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+/***for calculator***/
+/*** colors
+forest green      light green       lime green       dark green      shady green    
+#177F04           #6FFF55           #2DFF09          #137F00         #24CC07  
+***/
+button {
+	width: 50px;
+	height: 50px;
+	font-size: 18px;
+	border: outset 3px #137F00;
+	background-color: #24CC07;
+}
+
+button:focus {
+	outline: none;
+}
+
+input#calc_screen {
+	width: 223px;
+	height: 50px;
+	font-size: 18px;
+	padding-left: 5px;
+	background-color: #6FFF55;
+	border: inset 3px #137F00;
+}
+input#calc_screen:focus {
+	background-color: #6FFF55;
+}
+
+table#calc, td.calc {
+	border: 0px;
+}
+
+table#calc {
+	width: 225px;
+	margin: auto;
+	margin-top: 20px;
+}
+
+td.calc {
+	padding: 3px;
+}
+
+/***for tablets***/
+@media screen and (min-width: 768px) {
+  .col-m-1 {width: 8.33%;}
+  .col-m-2 {width: 16.66%;}
+  .col-m-3 {width: 25%;}
+  .col-m-4 {width: 33.33%;}
+  .col-m-5 {width: 41.66%;}
+  .col-m-6 {width: 50%;}
+  .col-m-7 {width: 58.33%;}
+  .col-m-8 {width: 66.66%;}
+  .col-m-9 {width: 75%;}
+  .col-m-10 {width: 83.33%;}
+  .col-m-11 {width: 91.66%;}
+  .col-m-12 {width: 100%;}
+  
+
+	
+}
+
+/*******Grid View for desktop****/
+@media screen and (min-width: 1071px) {
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+	
+	nav li {
+		display: inline-block;
+	}
+}

@@ -1,0 +1,183 @@
+﻿<!doctype html>
+<html lang="en">
+<meta charset="UTF-8"/>
+<title>Application Form</title>
+
+<meta name="description" content="Your Talented Pet Competition Entry Form" />
+<meta name="keywords" content="form, select, input, text, radio, checkbox, password, 
+pet competition, talent show, textarea" />
+<meta name="author" content="Stephen Richardson" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="pet_comp_form_style.css">
+<link rel="icon" type="image/png" href="../images/n7_icon.png">
+
+<body> 
+	<header>
+		<h1>Your Talented Pet!</h1>
+		<h1>Competition Entry Form</h1>
+	</header>
+	
+	<form action="http://icarus.cs.weber.edu/~linda/submit_pet1.php" method="post" 
+		name="pet_comp_form" onsubmit="return validate()">
+	<script src="form_validation.js"></script>
+	
+	<nav class="dropdown">
+		<ul>
+			<li class="left"><a href="../index.html">Home</a></li>
+			<li><a href="../my_hobbies.html">My Hobbies</a></li>
+			<li class="right"><a href="../fav_movies.html">My Favorite Movies</a></li>
+			<div class="dropdown_content">
+				<li class="left"><a href="../youth_shelter_home\index.html">Youth Shelter Home Page</a></li>
+				<li><a href="pet_comp_form.html" class="current">Pet Competition</a></li>
+				<li class="right"><a href="../bloodborne_mad_lib/bloodborne_mad_lib.html">The Hunt Begins Mad Lib</a></li>
+				<li class="left"><a href="../evolution_of_Samus/metroid_slideshow.html">Samus Through the Years</a></li>
+				<li><a href="../js_calc/calculator.html">JavaScript Calculator</a></li>
+				<li class="right"><a href="../animation_page/animation_page.html">Geeky Animations!</a></li>
+			</div>
+		</ul>
+	</nav>
+	
+	<div>
+		<h4><label for="pet_name">Enter the Pet's Name: </label>
+		<input type="text" name="pet_name" id="pet_name" required></h4>
+	</div>
+	
+	<section>
+		<h2>What Competition(s) Will Your Pet Be Participating In?</h2>
+		
+		<h3><input type="checkbox" id="sing" name="sing">
+		<label for="sing">The Singing Pet Competition</label></h3>
+		
+		<div class="contest_info">
+			<h4><label for="sing_title">Enter the Name of the Act:</label>
+			<input type="text" id="sing_title" name="sing_title"><span id="sing_title_par"></span></h4>
+			
+			<h4>Please Upload a Demo of Your Pet's Singing Ability!</h4>
+			<p>Audio files must be uploaded as a .mp3 or a .wav</p>
+			<p><input type="file" id="sing_file" name="sing_file"><span id="sing_file_par"></span></p>
+		</div>
+			
+		<h3><input type="checkbox" id="cute" name="cute">
+		<label for="cute">AWWWW! Cuteness Competition</label></h3>
+		
+		<img src="cute_pet_opt.jpg" width="250" height="141" alt="cute kitten and puppy">
+		
+		<div  class="contest_info">
+			<h4><label for="cute_title">Enter the Name of the Entry:</label>
+			<input type="text" id="cute_title" name="cute_title"></h4>
+			
+			<h4>Please Upload Some Pictures of Your Cute Pet!</h4>
+			<p>Pictures must be uploaded as .jpg, .png or .gif</p>
+			<ul>
+				<li><input type="file" id="cute_file1" name="cute_file1"><span id="cute_file1_par"></span></li>
+				<li><input type="file" id="cute_file2" name="cute_file2"><span id="cute_file2_par"></span></li>
+				<li><input type="file" id="cute_file3" name="cute_file3"><span id="cute_file3_par"></span></li>
+			</ul>
+		</div>
+		
+		<h3 class="clear"><input type="checkbox" id="tricks" name="tricks">
+		<label for="tricks">He Just Did WHAT?! Tricks Competition</label></h3>
+			
+		<div  class="contest_info">
+			<h4><label for="tricks_title">Enter the Name of the Act:</label>
+			<input type="text" id="tricks_title" name="tricks_title"></h4>
+			
+			<h4>What Kind of Trick Will Your Pet be Performing?</h4>
+			
+			<p><select name="trick_type" id="trick_type">
+				<option value="1">Obstacle</option>
+				<option value="2">Frisbee/Ball/Other Catching</option>
+				<option value="3">Roll Over/Play Dead</option>
+				<option value="4">Other</option>
+				</select></p>
+		</div>
+	</section>
+	
+	<section>
+		<h2>Information About Your Pet</h2>
+		
+		<img src="types_of_pets_opt.png" width="224" height="200" alt="various pets">
+		
+		<div>
+			
+			<h3>What type of animal is your pet?</h3>
+			
+			<p><input type="radio" name="pet" id="cat" value="cat" required>
+			<label for="cat">Cat</label></p>
+			
+			<p><input type="radio" name="pet" id="dog" value="dog" required>
+			<label for="dog">Dog</label></p>
+			
+			<p><input type="radio" name="pet" id="reptile" value="reptile" required>
+			<label for="reptile">reptile</label></p>
+			
+			<p><input type="radio" name="pet" id="bird" value="bird" required>
+			<label for="bird">Bird</label></p>
+			
+			<p><input type="radio" name="pet" id="rodent" value="rodent" required>
+			<label for="rodent">Rodent</label></p>
+			
+			<p><span id="radio_par"></span></p>
+		</div>
+		
+		<div class="clear">
+			<h4><label for="b_day">What is Your Pet's Birthday? (mm/dd/yy): </label>
+			<input type="text" id="b_day" name="b_day"><span id="b_day_par"></span></h4>
+		</div>
+		
+		<div>
+			<h4>Tell Us a Little Bit About Your Pet (100-200 words)</h4>
+			<textarea name="about" rows="10" cols="55" required></textarea>
+		</div>
+	</section>
+	
+	<section>
+		<h2>Contact Information</h2>
+		
+		<div class="contact">
+			<h4><label for="owner_name">Enter Your Name:</label>
+			<input type="text" id="owner_name" name="owner_name" required></h4>
+			
+			<h4><label for="number">Enter Your Phone Number (###-###-####):</label>
+			<input type="text" id="number" name="number"><span id="number_par"></span></h4>
+		</div>
+	</section>
+	
+	<section>
+		<h2>Account Creation</h2>
+		<h3>Please create an account in order to access and/or change the information
+		entered at a later time.</h3>
+		
+		<div>
+			<p>Your username must:</p>
+			<ul>
+				<li>Be 5-8 characters long</li>
+				<li>Consist of only letters</li>
+			</ul>
+			
+			<h4><label for="username">Username:</label>
+			<input type="text" id="username" name="username"><span id="username_par"></span></h4>
+		</div>
+		
+		<div>
+			<p>Your password must be at least 8 characters long and include at least
+				3 of the following:</p>
+			<ul>
+				<li>A lowercase letter</li>
+				<li>An uppercase letter</li>
+				<li>A number</li>
+				<li>A special character</li>
+			</ul>
+			
+			<h4><label for="password">Password:</label>
+			<input type="password" id="password" name="password"><span id="password_par"></span></h4>
+		</div>
+	</section>
+	
+	<p><input type="submit" value="Submit" name="submit" id="submit"></p>
+	
+	<footer>Written by Stephen Richardson, July 2017</footer>
+	</form>
+</body>
+</html>

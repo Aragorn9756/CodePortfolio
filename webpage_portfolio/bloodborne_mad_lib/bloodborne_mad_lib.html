@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<meta charset="UTF-8"/>
+<title>The Hunt Begins</title>
+
+<meta name="description" content="A Bloodborne inspired mad lib showcasing understanding
+of basic javascript" />
+<meta name="keywords" content="Bloodborne, Mad Lib, JavaScript, buttons" />
+<meta name="author" content="Stephen Richardson" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" type="image/png" href="../images/n7_icon.png">
+
+<body> 
+	<header>
+		<h1>The Hunt Begins Mad Lib</h1>
+	</header>
+	
+	<nav class="dropdown">
+		<ul>
+			<li class="left"><a href="../index.html">Home</a></li>
+			<li><a href="../my_hobbies.html">My Hobbies</a></li>
+			<li class="right"><a href="../fav_movies.html">My Favorite Movies</a></li>
+			<div class="dropdown_content">
+				<li class="left"><a href="../youth_shelter_home\index.html">Youth Shelter Home Page</a></li>
+				<li><a href="../pet_comp_form/pet_comp_form.html">Pet Competition</a></li>
+				<li class="right"><a href="bloodborne_mad_lib.html" class="current">The Hunt Begins Mad Lib</a></li>
+				<li class="left"><a href="../evolution_of_Samus/metroid_slideshow.html">Samus Through the Years</a></li>
+				<li><a href="../js_calc/calculator.html">JavaScript Calculator</a></li>
+				<li class="right"><a href="../animation_page/animation_page.html">Geeky Animations!</a></li>
+			</div>
+		</ul>
+	</nav>
+	
+	<h2 id="greeting"></h2>
+	
+	<script>
+	var name
+	name = prompt("What is your name?")
+	document.getElementById("greeting").innerHTML = "Welcome to the "
+		+ "Hunt " + name + "!"
+	
+	function replaceWord() {
+		var name = document.getElementById("name").value
+		var gender_she = document.getElementById("gender_she").value
+		var gender_her = document.getElementById("gender_her").value
+		var verb_ing1 = document.getElementById("verb_ing1").value
+		var object1 = document.getElementById("object1").value
+		var stain = document.getElementById("stain").value
+		var object2 = document.getElementById("object2").value
+		var bottled = document.getElementById("bottled").value
+		var state_of_mind = document.getElementById("state_of_mind").value
+		var adjective1 = document.getElementById("adjective1").value
+		var color = document.getElementById("color").value
+		var appendage = document.getElementById("appendage").value
+		var animal = document.getElementById("animal").value
+		var adjective2 = document.getElementById("adjective2").value
+		var liquid = document.getElementById("liquid").value
+		var object3 = document.getElementById("object3").value
+		var verb_past = document.getElementById("verb_past").value
+		var adjective3 = document.getElementById("adjective3").value
+		var verb_ing2 = document.getElementById("verb_ing2").value
+		var emotion1 = document.getElementById("emotion1").value
+		var adjective4 = document.getElementById("adjective4").value
+		var place = document.getElementById("place").value
+		var object4 = document.getElementById("object4").value
+		var toy = document.getElementById("toy").value
+		var body_part = document.getElementById("body_part").value
+		var emotion2 = document.getElementById("emotion2").value
+		var verb_ing3 = document.getElementById("verb_ing3").value
+		var building = document.getElementById("building").value
+		var furniture1 = document.getElementById("furniture1").value
+		var furniture2 = document.getElementById("furniture2").value
+		var adjective5 = document.getElementById("adjective5").value
+		var occupation = document.getElementById("occupation").value
+		var objects = document.getElementById("objects").value
+		var verb = document.getElementById("verb").value
+		var weapon1 = document.getElementById("weapon1").value
+		var firearm = document.getElementById("firearm").value
+		var adjective6 = document.getElementById("adjective6").value
+		var adjective7 = document.getElementById("adjective7").value
+		var weapon2 = document.getElementById("weapon2").value
+		var emotion_ed = document.getElementById("emotion_ed").value
+		
+		document.getElementById("p1").innerHTML = "<span>" + name + "</span> came to, "
+			+ "head <span>" + verb_ing1 + "</span>. <span>" + gender_she + "</span> "
+			+ "tried to shift but found that <span>" + gender_she + "</span> was still "
+			+ "strapped to the <span>" + object1 + "</span>. <span>" + gender_she
+			+ "</span> inspected <span>" + gender_her + "</span> surroundings. The "
+			+ "room had <span>" + stain + "</span> all over. <span>" + object2 + "</span> "
+			+ "were ordered neatly throughout the room. Bottles of <span>" + bottled
+			+ "</span> and who knows what else lined the walls. <span>" + name 
+			+ "</span> swooned, nearly slipping back into <span>" + state_of_mind 
+			+ "</span>. Just as <span>" + gender_she + "</span> regained focus, <span>"
+			+ gender_she + "</span>	noticed something exceedingly <span>" + adjective1
+			+ "</span> in the middle of the room; a pool of <span>" + color + "</span>"
+			+ " liquid beginning to radiate outwards, growing larger by the second. "
+			+ "Then something began to emerge from the pool... First a <span>"
+			+ appendage + "</span> the size of <span>" + name + "</span>'s face, "
+			+ "followed by a second <span>" + appendage + "</span>, then a large <span>"
+			+ animal + "</span> head. An unnaturally <span>" + adjective2 + "</span> "
+			+ "<span>" + animal + "</span> pulled itself from the liquid, soaked in a "
+			+ "red substance. <span>" + liquid + "</span>, <span>" + name + "</span> "
+			+ "realized. <span>" + gender_she + "</span> was going to die. Suddenly, "
+			+ "the nightmarish beast burst into <span>" + object3 + "</span>, howling "
+			+ "in agony as it disappeared back into the <span>" + liquid + "</span> "
+			+ "from whence it came. The last thing <span>" + name + "</span> <span>"
+			+ verb_past + "</span> before <span>" + gender_her + "</span> taxed mind "
+		  + "gave out on <span>" + gender_her + "</span> was a plethora of small "
+			+ "<span>" + adjective3 + "</span> figures, no bigger than infants, <span>"
+			+ verb_ing2 + "</span> from over the side of the table to cover <span>"
+			+ gender_her + "</span> protectively. Pure white, their gaunt faces were "
+			+ "masks of unspeakable pain and despair, yet paradoxically exuded such "
+			+ "innocence and curiosity, <span>" + name + "</span> couldn't help but "
+			+ "feel <span>" + emotion1 + "</span> as <span>" + gender_she + "</span> "
+			+ "let go of conciousness."
+		
+		document.getElementById("p2").innerHTML = "When <span>" + name + "</span> "
+			+ "awoke again, <span>" + gender_she + "</span> was completely <span>"
+			+ adjective4 + "</span>. Picking <span>" + gender_her + "self</span> up "
+			+ "from off the ground, <span>" + gender_she + "</span> inspected her "
+			+ "surroundings. <span>" + gender_she + "</span> seemed to be in some sort "
+			+ "of <span>" + place + "</span>. <span>" + object4 + "</span> were "
+			+ "everywhere <span>" + gender_she + "</span> looked, with small white "
+			+ "flowers filling the spaces between. Leaning up against a "
+			+ "bush, next to a flight of steps was a life size female <span>" + toy
+			+ "</span>. The <span>" + toy + "</span> had soft gray hair and a sweet, "
+			+ "caring expression upon her <span>" + body_part + "</span>."
+			
+		document.getElementById("p3").innerHTML = "\"A great deal of <span>"
+			+ emotion2 + "</span> and care has obviously gone into this <span>" + toy
+			+ "</span>,\" <span>" + name + "</span> thought. <span>" + verb_ing3
+			+ "</span> up the steps, <span>" + gender_she + "</span> entered a small "
+			+ "<span>" + building + "</span>. On the far side was an altar of some "
+			+ "sort. Along the right wall was a large storage chest and a table with "
+			+ "all sorts of tools. On the left wall sat a <span>" + furniture1
+			+ "</span> with tomes in various languages and characters. Next to the "
+			+ "<span>" + furniture1 + "</span> was a cozy fireplace with an old man "
+			+ "in a <span>" + furniture2 + "</span>, seeming to sleep. With startling "
+			+ "speed, the man looked up at <span>" + name + "</span> with an "
+			+ "intelligent and <span>" + adjective5 + "</span> gaze."
+		
+		document.getElementById("p4").innerHTML = "\"Ah, you must be the one the "
+			+ "messengers found,\" the man said. \"I am Gehrman, and you are our "
+			+ "newest <span>" + occupation + "</span>! Welcome to the <span>" 
+			+ occupation + "'s</span> Dream. This place will serve as a respite during "
+			+ "your adventures out in Yharnam. Feel free to use anything you find here, "
+			+ "though many <span>" + objects + "</span> have gone missing since the "
+			+ "Hunt was at it's peak. I think you will find the <span>" + toy + "</span> "
+			+ "especially useful. Here is a weapon, and a firearm to take with you. "
+			+ "May they serve you well. Now, go and <span>" + verb + "</span> some "
+			+ "beasts. It's for your own good.\""
+		
+		document.getElementById("p5").innerHTML = "<span>" + name + "</span> took "
+			+ "an <span>" + weapon1 + "</span> and a <span>" + firearm + "</span> from "
+			+ "Gehrman. Although both weapons were well worn from use, they were of "
+			+ "high quality and still quite <span>" + adjective6 + "</span>. <span>"
+			+ gender_she + "</span> examined the one-handed hunting <span>" + weapon1
+			+ "</span>. The handle was <span>" + adjective7 + "</span> designed to "
+			+ "extend and turn the <span>" + weapon1 + "</span> into a two-handed "
+			+ "<span>" + weapon2 + "</span> with incredible reach. <span>" + name
+			+ "</span> had no idea what <span>" + gender_she + "</span> was getting "
+			+ "<span>" + gender_her + "self</span> into, but <span>" + gender_she
+			+ "</span> now felt incredibly well <span>" + emotion_ed + "</span> to face "
+			+ "whatever monstrosities came <span>" + gender_her + "</span> way."
+	}
+	</script>
+	
+	<p>The Hunt Begins is a mad lib based off of FromSoftware's grim and atmospheric 
+	  Bloodborne. While this small story was originally written to reflect it's 
+		inspiration's dark and gritty tone, this is a mad lib! See what you can come 
+		up with and remember, <span class="quote">seek the paleblood to transcend 
+		the hunt.</span></p>
+	
+	<p class="quote">"Good, all signed and sealed.<br>Now, let's begin the transfusion. Oh, 
+		don't you worry. Whatever happens... You may think it all a mere bad dream..."
+		<br>- Mysterious Yharnamite Healer</p>
+		
+	<section>
+		<img src="../images/bloodborne_wolf_opt.jpg" width="230" height="168" class="float_right"
+			alt="'An unnaturally large wolf pulled itself from the liquid...'">
+		
+		<p id="p1"><span>Elizabeth</span> came to, head <span>pounding</span>. 
+			<span>She</span> tried to shift but found that <span>she</span> was still 
+			strapped to the <span>operating table</span>. <span>She</span> inspected 
+			<span>her</span> surroundings. The room had <span>bloodstains</span> all 
+			over. <span>Operating tables</span> were ordered neatly throughout the 
+			room. Bottles of <span>blood</span> and who knows what else lined the 
+			walls. <span>Elizabeth</span> swooned, nearly slipping back into 
+			<span>unconciousness</span>. Just as <span>she</span> regained focus, 
+			<span>she</span>	noticed something exceedingly <span>strange</span> in 
+			the middle of the room; a pool of <span>dark red</span> liquid beginning 
+			to radiate outwards, growing larger by the second. Then something began 
+			to emerge from the pool... First a <span>paw</span> the size of 
+			<span>Elizabeth</span>'s face, followed by a second <span>paw</span>, 
+			then a large <span>lupine</span> head. An unnaturally <span>large</span> 
+			<span>wolf</span> pulled itself from the liquid, soaked in a red 
+			substance. <span>Blood</span>, <span>Elizabeth</span> realized. 
+			<span>She</span> was going to die. Suddenly, the nightmarish beast burst 
+			into <span>flames</span>, howling in agony as it disappeared back into 
+			the <span>blood</span> from whence it came. The last thing 
+			<span>Elizabeth</span> <span>remembered</span> before <span>her</span> 
+			taxed mind gave out on <span>her</span> was a plethora of small 
+			<span>skeletal</span> figures, no bigger than infants, 
+			<span>creeping</span> from over the side of the table to cover 
+			<span>her</span> protectively. Pure white, their gaunt faces were masks 
+			of unspeakable pain and despair, yet paradoxically exuded such innocence 
+			and curiosity, <span>Elizabeth</span> couldn't help but feel 
+			<span>comforted</span> as <span>she</span> let go of conciousness.</p>
+		
+		<p id="p2">When <span>Elizabeth</span> awoke again, <span>She</span> was 
+			completely <span>lost</span>. Picking <span>herself</span> up from off 
+			the ground, <span>she</span> inspected her surroundings. <span>She</span> 
+			seemed to be in some sort of <span>graveyard</span>. 
+			<span>Gravestones</span> were everywhere <span>she</span> looked, with 
+			small white flowers filling the spaces between. Leaning up against a bush, 
+			next to a flight of steps was a life size female <span>doll</span>. The 
+			<span>doll</span> had soft gray hair and a sweet, caring expression upon 
+			her <span>face</span>.</p>
+		
+		<img src="../images/messengers_opt.jpg" width="229" height="131" 
+			id="float_left" alt="'small skeletal figures, no bigger than infants'">
+		
+		<p id="p3">"A great deal of <span>love</span> and care has obviously gone 
+			into this <span>doll</span>," <span>Elizabeth</span> thought. 
+			<span>Walking</span> up the steps, <span>she</span> entered a small 
+			<span>workshop</span>. On the far side was an altar of some sort. Along 
+			the right wall was a large storage chest and a table with all sorts of 
+			tools. On the left wall sat a <span>bookshelf</span> with tomes in various 
+			languages and characters. Next to the <span>bookshelf</span> was a cozy 
+			fireplace with an old man in a <span>wheelchair</span>, seeming to sleep. 
+			With startling speed, the man looked up at <span>Elizabeth</span> with an 
+			intelligent and <span>sorrowful</span> gaze.</p>
+			
+		<p id="p4">"Ah, you must be the one the messengers found," the man said. "I 
+			am Gehrman, and you are our newest <span>hunter</span>! Welcome to the 
+			<span>Hunter's</span> Dream. This place will serve as a respite during your 
+			adventures out in Yharnam. Feel free to use anything you find here, though 
+			many <span>items</span> have gone missing since the Hunt was at it's peak. 
+			I think you will find the <span>doll</span> especially useful. Here is a 
+			weapon, and a firearm to take with you. May they serve you well. Now, go 
+			and <span>kill</span> some beasts. It's for your own good."</p>
+			
+		<p id="p5"><span>Elizabeth</span> took an <span>axe</span> and a 
+			<span>pistol</span> from Gehrman. Although both weapons were well worn 
+			from use, they were of high quality and still quite <span>deadly</span>. 
+			<span>She</span> examined the one-handed hunting <span>axe</span>. The 
+			handle was <span>ingeniously</span> designed to extend and turn the 
+			<span>axe</span> into a two-handed <span>poleaxe</span> with incredible 
+			reach. <span>Elizabeth</span> had no idea what <span>she</span> was getting 
+			<span>herself</span> into, but <span>she</span> now felt incredibly well 
+			<span>prepared</span> to face whatever monstrosities came <span>her</span> 
+			way.</p>
+	</section>
+	
+	<section class="mad_lib row">
+		<div class="col-6">
+		<ul>
+			<li><label for="name">Name</label>
+				<input type="text" id="name"></li>
+			<li><label for="gender_she">Gender (He, She)</label>
+				<input type="text" id="gender_she"></li>
+			<li><label for="gender_her">Gender (Him, Her)</label>
+				<input type="text" id="gender_her"></li>
+			<li><label for="verb_ing1">Verb (Ending in -ing)</label>
+				<input type="text" id="verb_ing1"></li>
+			<li><label for="object1">Object</label>
+				<input type="text" id="object1"></li>
+			<li><label for="stain">Type of Stain</label>
+				<input type="text" id="stain"></li>
+			<li><label for="object2">Object</label>
+				<input type="text" id="object2"></li>
+			<li><label for="bottled">Bottled Substance</label>
+				<input type="text" id="bottled"></li>
+			<li><label for="state_of_mind">State of Mind</label>
+				<input type="text" id="state_of_mind"></li>
+			<li><label for="adjective1">Adjective</label>
+				<input type="text" id="adjective1"></li>
+			<li><label for="color">Color</label>
+				<input type="text" id="color"></li>
+			<li><label for="appendage">Appendage</label>
+				<input type="text" id="appendage"></li>
+			<li><label for="animal">Animal</label>
+				<input type="text" id="animal"></li>
+			<li><label for="adjective2">Adjective</label>
+				<input type="text" id="adjective2"></li>
+			<li><label for="liquid">liquid</label>
+				<input type="text" id="liquid"></li>
+			<li><label for="object3">Object</label>
+				<input type="text" id="object3"></li>
+			<li><label for="verb_past">Verb (Past Tense)</label>
+				<input type="text" id="verb_past"></li>
+			<li><label for="adjective3">Adjective</label>
+				<input type="text" id="adjective3"></li>
+			<li><label for="verb_ing2">Verb (Ending in -ing)</label>
+				<input type="text" id="verb_ing2"></li>
+			<li><label for="emotion1">Emotion</label>
+				<input type="text" id="emotion1"></li>
+		</ul>
+		</div>
+		
+		<div class="col-6">
+		<ul>
+			<li><label for="adjective4">Adjective</label>
+				<input type="text" id="adjective4"></li>
+			<li><label for="place">Place</label>
+				<input type="text" id="place"></li>
+			<li><label for="object4">Object</label>
+				<input type="text" id="object4"></li>
+			<li><label for="toy">Toy</label>
+				<input type="text" id="toy"></li>
+			<li><label for="body_part">Body Part</label>
+				<input type="text" id="body_part"></li>
+			<li><label for="emotion2">Emotion</label>
+				<input type="text" id="emotion2"></li>
+			<li><label for="verb_ing3">Verb (Ending in -ing)</label>
+				<input type="text" id="verb_ing3"></li>
+			<li><label for="building">Building</label>
+				<input type="text" id="building"></li>
+			<li><label for="furniture1">Furniture</label>
+				<input type="text" id="furniture1"></li>
+			<li><label for="furniture2">Furniture</label>
+				<input type="text" id="furniture2"></li>
+			<li><label for="adjective5">Adjective</label>
+				<input type="text" id="adjective5"></li>
+			<li><label for="occupation">Occupation</label>
+				<input type="text" id="occupation"></li>
+			<li><label for="objects">Objects (plural)</label>
+				<input type="text" id="objects"></li>
+			<li><label for="verb">Verb</label>
+				<input type="text" id="verb"></li>
+			<li><label for="weapon1">Weapon</label>
+				<input type="text" id="weapon1"></li>
+			<li><label for="firearm">Firearm</label>
+				<input type="text" id="firearm"></li>
+			<li><label for="adjective6">Adjective</label>
+				<input type="text" id="adjective6"></li>
+			<li><label for="adjective7">Adjective</label>
+				<input type="text" id="adjective7"></li>
+			<li><label for="weapon2">Weapon</label>
+				<input type="text" id="weapon2"></li>
+			<li><label for="emotion_ed">Emotion (Ending in -ed)</label>
+				<input type="text" id="emotion_ed"></li>
+		</ul>
+		</div>
+		
+		<p><button type="button" onclick="replaceWord()">Create Your Story</button></p>
+		
+	</section>
+	
+	<footer>
+	<p>Written July 2017 by Stephen Richardson. Bloodborne was developed by 
+	FromSoftware and published by Sony Interactive Entertainment. All trademarks 
+	and copyrights belong to them.</p>
+	</footer>
+	
+</body>
+</html>

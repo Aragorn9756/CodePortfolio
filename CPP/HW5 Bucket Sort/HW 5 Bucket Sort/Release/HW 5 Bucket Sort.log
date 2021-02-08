@@ -1,0 +1,11 @@
+﻿  HW5_Bucket_Sort_Source.cpp
+HW5_Bucket_Sort_Source.cpp(165): warning C4018: '<': signed/unsigned mismatch
+HW5_Bucket_Sort_Source.cpp(257): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'const char *'
+HW5_Bucket_Sort_Source.cpp(257): warning C4474: 'printf' : too many arguments passed for format string
+  HW5_Bucket_Sort_Source.cpp(257): note: placeholders and their parameters expect 4 variadic arguments, but 5 were provided
+HW5_Bucket_Sort_Source.cpp(270): warning C4474: 'printf' : too many arguments passed for format string
+  HW5_Bucket_Sort_Source.cpp(270): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+  Generating code
+  All 332 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  HW 5 Bucket Sort.vcxproj -> c:\users\arago\documents\visual studio 2017\Projects\HW 5 Bucket Sort\Release\HW 5 Bucket Sort.exe

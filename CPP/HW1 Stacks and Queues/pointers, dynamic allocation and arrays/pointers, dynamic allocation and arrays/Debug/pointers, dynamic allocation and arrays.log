@@ -1,0 +1,7 @@
+﻿  safeArraySource.cpp
+c:\users\arago\documents\visual studio 2017\projects\pointers, dynamic allocation and arrays\pointers, dynamic allocation and arrays\safearraysource.cpp(18): error C2365: 'SafeArray<T>::capacity': redefinition; previous definition was 'member function'
+  c:\users\arago\documents\visual studio 2017\projects\pointers, dynamic allocation and arrays\pointers, dynamic allocation and arrays\safearraysource.cpp(14): note: see declaration of 'SafeArray<T>::capacity'
+  c:\users\arago\documents\visual studio 2017\projects\pointers, dynamic allocation and arrays\pointers, dynamic allocation and arrays\safearraysource.cpp(19): note: see reference to class template instantiation 'SafeArray<T>' being compiled
+c:\users\arago\documents\visual studio 2017\projects\pointers, dynamic allocation and arrays\pointers, dynamic allocation and arrays\safearraysource.cpp(18): error C2365: 'SafeArray<int>::capacity': redefinition; previous definition was 'member function'
+  c:\users\arago\documents\visual studio 2017\projects\pointers, dynamic allocation and arrays\pointers, dynamic allocation and arrays\safearraysource.cpp(14): note: see declaration of 'SafeArray<int>::capacity'
+  c:\users\arago\documents\visual studio 2017\projects\pointers, dynamic allocation and arrays\pointers, dynamic allocation and arrays\safearraysource.cpp(52): note: see reference to class template instantiation 'SafeArray<int>' being compiled

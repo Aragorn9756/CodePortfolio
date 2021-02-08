@@ -1,0 +1,922 @@
+Microsoft (R) Macro Assembler Version 14.11.25547.0	    11/19/17 23:06:15
+CS2810 Assembler Templat				     Page 1 - 1
+
+
+				TITLE CS2810 Assembler Template
+
+				; Student Name: Stephen Richardson
+				; Assignment Due Date: 11/05/17
+
+				INCLUDE Irvine32.inc
+			      C ; Include file for Irvine32.lib             (Irvine32.inc)
+			      C 
+			      C ;OPTION CASEMAP:NONE		; optional: make identifiers case-sensitive
+			      C 
+			      C INCLUDE SmallWin.inc		; MS-Windows prototypes, structures, and constants
+			      C .NOLIST
+			      C .LIST
+			      C 
+			      C INCLUDE VirtualKeys.inc
+			      C ; VirtualKeys.inc
+			      C .NOLIST
+			      C .LIST
+			      C 
+			      C 
+			      C .NOLIST
+			      C .LIST
+			      C 
+ 00000000			.data
+					;--------- Enter Data Here
+ 00000000 43 53 32 38 31		vSemester byte "CS2810 Fall Semester 2017",0
+	   30 20 46 61 6C
+	   6C 20 53 65 6D
+	   65 73 74 65 72
+	   20 32 30 31 37
+	   00
+ 0000001A 41 73 73 65 6D		vAssignment byte "Assembler Assignment #3",0
+	   62 6C 65 72 20
+	   41 73 73 69 67
+	   6E 6D 65 6E 74
+	   20 23 33 00
+ 00000032 53 74 65 70 68		vName byte "Stephen Richardson",0
+	   65 6E 20 52 69
+	   63 68 61 72 64
+	   73 6F 6E 00
+ 00000045 50 6C 65 61 73		vPrompt byte "Please enter an MP3 frame header in a hexidecimal format:",0
+	   65 20 65 6E 74
+	   65 72 20 61 6E
+	   20 4D 50 33 20
+	   66 72 61 6D 65
+	   20 68 65 61 64
+	   65 72 20 69 6E
+	   20 61 20 68 65
+	   78 69 64 65 63
+	   69 6D 61 6C 20
+	   66 6F 72 6D 61
+	   74 3A 00
+					
+					;name of mpeg types
+ 0000007F 4D 50 45 47 20		vMpeg25 byte "MPEG Version 2.5",0
+	   56 65 72 73 69
+	   6F 6E 20 32 2E
+	   35 00
+ 00000090 4D 50 45 47 20		vMpeg20 byte "MPEG Version 2.0",0
+	   56 65 72 73 69
+	   6F 6E 20 32 2E
+	   30 00
+ 000000A1 4D 50 45 47 20		vMpeg10 byte "MPEG Version 1.0",0
+	   56 65 72 73 69
+	   6F 6E 20 31 2E
+	   30 00
+ 000000B2 4D 50 45 47 20		vMpegRE byte "MPEG Reserved",0
+	   52 65 73 65 72
+	   76 65 64 00
+
+					;sampling rate variables
+ 000000C0 53 61 6D 70 6C		vSampleHeader byte "Sampling Rate Frequency: ",0
+	   69 6E 67 20 52
+	   61 74 65 20 46
+	   72 65 71 75 65
+	   6E 63 79 3A 20
+	   00
+ 000000DA 34 34 31 30 30		vMpeg10SR1 byte "44100 Hz",0
+	   20 48 7A 00
+ 000000E3 34 38 30 30 30		vMpeg10SR2 byte "48000 Hz",0
+	   20 48 7A 00
+ 000000EC 33 32 30 30 30		vMpeg10SR3 byte "32000 Hz",0
+	   20 48 7A 00
+ 000000F5 52 65 73 65 72		vMpeg10SRRE byte "Reserved",0
+	   76 65 64 00
+ 000000FE 32 32 30 35 30		vMpeg20SR1 byte "22050 Hz",0
+	   20 48 7A 00
+ 00000107 32 34 30 30 30		vMpeg20SR2 byte "24000 Hz",0
+	   20 48 7A 00
+ 00000110 31 36 30 30 30		vMpeg20SR3 byte "16000 Hz",0
+	   20 48 7A 00
+ 00000119 52 65 73 65 72		vMpeg20SRRE byte "Reserved",0
+	   76 65 64 00
+ 00000122 31 31 30 32 35		vMpeg25SR1 byte "11025 Hz",0
+	   20 48 7A 00
+ 0000012B 31 32 30 30 30		vMpeg25SR2 byte "12000 Hz",0
+	   20 48 7A 00
+ 00000134 38 30 30 30 20		vMpeg25SR3 byte "8000 Hz",0
+	   48 7A 00
+ 0000013C 52 65 73 65 72		vMpeg25SRRE byte "Reserved",0
+	   76 65 64 00
+ 00000145 49 6E 66 6F 72		vMpegRESR byte "Information Unavailable",0
+	   6D 61 74 69 6F
+	   6E 20 55 6E 61
+	   76 61 69 6C 61
+	   62 6C 65 00
+
+					;layer types
+ 0000015D 4C 61 79 65 72		vLayer1 byte "Layer Type 1",0
+	   20 54 79 70 65
+	   20 31 00
+ 0000016A 4C 61 79 65 72		vLayer2 byte "Layer Type 2",0
+	   20 54 79 70 65
+	   20 32 00
+ 00000177 4C 61 79 65 72		vLayer3 byte "Layer Type 3",0
+	   20 54 79 70 65
+	   20 33 00
+ 00000184 4C 61 79 65 72		vLayerRE byte "Layer Reserved",0
+	   20 52 65 73 65
+	   72 76 65 64 00
+
+ 00000000			.code
+ 00000000			main PROC
+					;--------- Enter Code Below Here
+ 00000000  E8 00000000 E		call clrscr
+ 00000005  E8 00000039			call DisplayHeader
+ 0000000A  E8 0000006E			call ReadMP3Header
+
+					;move cursor for version display
+ 0000000F  B6 0F			mov dh, 15
+ 00000011  B2 0C			mov dl, 12
+ 00000013  E8 00000000 E		call gotoxy
+
+ 00000018  E8 00000084			call DisplayVersion
+
+					;move cursor for layer display
+ 0000001D  B6 10			mov dh, 16
+ 0000001F  B2 0C			mov dl, 12
+ 00000021  E8 00000000 E		call gotoxy
+
+ 00000026  E8 000000AF			call DisplayLayer
+
+					;move cursor for sampling rate
+ 0000002B  B6 11			mov dh, 17
+ 0000002D  B2 0C			mov dl, 12
+ 0000002F  E8 00000000 E		call gotoxy
+
+ 00000034  BA 000000C0 R		mov edx, offset vSampleHeader
+ 00000039  E8 00000000 E		call WriteString
+
+ 0000003E  E8 000000D2			call DisplaySampleRate
+
+					;creating our own label (method/function)
+					;LabelName:
+						;Label content
+						;ret goes back to original address
+ 00000043				DisplayHeader:
+ 00000043  B6 0A				mov dh, 10
+ 00000045  B2 0C				mov dl, 12
+ 00000047  E8 00000000 E			call gotoxy
+
+ 0000004C  BA 00000000 R			mov edx, offset vSemester
+ 00000051  E8 00000000 E			call WriteString
+
+ 00000056  B6 0B				mov dh, 11
+ 00000058  B2 0C				mov dl, 12
+ 0000005A  E8 00000000 E			call gotoxy
+
+ 0000005F  BA 0000001A R			mov edx, offset vAssignment
+ 00000064  E8 00000000 E			call WriteString
+
+ 00000069  B6 0C				mov dh, 12
+ 0000006B  B2 0C				mov dl, 12
+ 0000006D  E8 00000000 E			call gotoxy
+
+ 00000072  BA 00000032 R			mov edx, offset vName
+ 00000077  E8 00000000 E			call WriteString
+
+ 0000007C  C3					ret;
+
+ 0000007D				ReadMP3Header:
+						;display prompt and read in hex value
+ 0000007D  B6 0D				mov dh, 13
+ 0000007F  B2 0C				mov dl, 12
+ 00000081  E8 00000000 E			call gotoxy
+
+ 00000086  BA 00000045 R			mov edx, offset vPrompt
+ 0000008B  E8 00000000 E			call WriteString
+
+ 00000090  B6 0E				mov dh, 14
+ 00000092  B2 0C				mov dl, 12
+ 00000094  E8 00000000 E			call gotoxy
+
+ 00000099  E8 00000000 E			call ReadHex
+
+						;save a copy in ecx
+ 0000009E  8B C8				mov ecx, eax
+					
+ 000000A0  C3					ret
+
+ 000000A1				DisplayVersion: 
+						;assembly header format
+						;isolate B bits to get Version ID
+								;AAAAAAAAAAABBCCDEEEEFFGHIIJJKLMM
+ 000000A1  25 00180000				and eax, 00000000000110000000000000000000b
+ 000000A6  C1 E8 13				shr eax, 19
+
+						;compare isolated bits to what each format bit pattern would be
+						;then do a jump to the correct label to print out that version.
+
+ 000000A9  83 F8 00				cmp eax, 00b ;compare what's in eax to the binary value 00
+ 000000AC  74 11				jz dMpeg25 ;if true, jump to the label of the name dMpeg25
+
+ 000000AE  83 F8 01				cmp eax, 01b
+ 000000B1  74 13				jz dMpegRE
+
+ 000000B3  83 F8 02				cmp eax, 10b
+ 000000B6  74 15				jz dMpeg20
+
+						;if none of the others match, get the offset prepped for the final option
+ 000000B8  BA 000000A1 R			mov edx, offset vMpeg10
+ 000000BD  EB 15				jmp DisplayString
+
+						;labels for DisplayVersion
+ 000000BF					dMpeg25:
+ 000000BF  BA 0000007F R				mov edx, offset vMpeg25
+ 000000C4  EB 0E					jmp DisplayString
+
+ 000000C6					dMpegRE:
+ 000000C6  BA 000000B2 R				mov edx, offset vMpegRE
+ 000000CB  EB 07					jmp DisplayString
+
+ 000000CD					dMpeg20:
+ 000000CD  BA 00000090 R				mov edx, offset vMpeg20
+ 000000D2  EB 00					jmp DisplayString
+
+ 000000D4					DisplayString:
+ 000000D4  E8 00000000 E				call WriteString
+
+						;return for entire Display Version
+ 000000D9  C3					ret
+
+ 000000DA				DisplayLayer:
+						;copy untouched hex to eax
+ 000000DA  8B C1				mov eax, ecx
+						
+						;assembly header format
+						;isolate C bits to get Version ID
+								;AAAAAAAAAAABBCCDEEEEFFGHIIJJKLMM
+ 000000DC  25 00060000				and eax, 00000000000001100000000000000000b
+ 000000E1  C1 E8 11				shr eax, 17
+
+ 000000E4  83 F8 00				cmp eax, 00b
+ 000000E7  74 11				jz dLayerRE
+
+ 000000E9  83 F8 01				cmp eax, 01b
+ 000000EC  74 13				jz dLayer3
+
+ 000000EE  83 F8 02				cmp eax, 10b
+ 000000F1  74 15				jz dLayer2
+
+						;if not the others, assume its layer 1
+ 000000F3  BA 0000015D R			mov edx, offset vLayer1
+ 000000F8  EB 15				jmp DisplayString2
+
+						;Labels for DisplayLayer
+ 000000FA					dLayerRE:
+ 000000FA  BA 00000184 R				mov edx, offset vLayerRE
+ 000000FF  EB 0E					jmp DisplayString2
+
+ 00000101					dLayer3:
+ 00000101  BA 00000177 R				mov edx, offset vLayer3
+ 00000106  EB 07					jmp DisplayString2
+
+ 00000108					dLayer2:
+ 00000108  BA 0000016A R				mov edx, offset vLayer2
+ 0000010D  EB 00					jmp DisplayString2
+
+ 0000010F					DisplayString2:
+ 0000010F  E8 00000000 E				call WriteString
+
+						;return for Display Layer
+ 00000114  C3					ret
+
+ 00000115				DisplaySampleRate:
+						;copy untouched hex to eax
+ 00000115  8B C1				mov eax, ecx
+						
+						;assembly header format
+						;isolate B bits to get Version ID
+								;AAAAAAAAAAABBCCDEEEEFFGHIIJJKLMM
+ 00000117  25 00180000				and eax, 00000000000110000000000000000000b
+ 0000011C  C1 E8 13				shr eax, 19
+
+						;get the version id, then jump to label that will parse that 
+
+ 0000011F  83 F8 00				cmp eax, 00
+ 00000122  74 14				jz mpeg25SR
+
+ 00000124  83 F8 02				cmp eax, 10b
+ 00000127  74 44				jz mpeg20SR
+
+ 00000129  83 F8 03				cmp eax, 11b
+ 0000012C  74 74				jz mpeg10SR
+
+						;otherwise it's a reserved version, which doesn't have sample rate info
+ 0000012E  BA 00000145 R			mov edx, offset vMpegRESR
+ 00000133  E9 0000009F				jmp DisplayString3
+
+ 00000138					mpeg25SR:
+							;copy untouched hex to eax
+ 00000138  8B C1					mov eax, ecx
+						
+							;assembly header format
+							;isolate F bits to get Sample rate type
+									;AAAAAAAAAAABBCCDEEEEFFGHIIJJKLMM
+ 0000013A  25 00000C00					and eax, 00000000000000000000110000000000b
+ 0000013F  C1 E8 0A					shr eax, 10
+
+ 00000142  83 F8 00					cmp eax, 00b
+ 00000145  74 11					jz mpeg25SR1 ;jump to label that will print ver. 2.5 sample rate 1
+
+ 00000147  83 F8 01					cmp eax, 01b
+ 0000014A  74 13					jz mpeg25SR2 ;jump to label that will print ver. 2.5 sample rate 2
+
+ 0000014C  83 F8 02					cmp eax, 10b
+ 0000014F  74 15					jz mpeg25SR3 ;jump to label that will print ver. 2.5 sample rate 3 
+
+							;only other option is the reserved sample rate
+ 00000151  BA 0000013C R				mov edx, offset vMpeg25SRRE
+ 00000156  EB 7F					jmp DisplayString3
+
+ 00000158						mpeg25SR1:
+ 00000158  BA 00000122 R					mov edx, offset vMpeg25SR1
+ 0000015D  EB 78						jmp DisplayString3
+
+ 0000015F						mpeg25SR2:
+ 0000015F  BA 0000012B R					mov edx, offset vMpeg25SR2
+ 00000164  EB 71						jmp DisplayString3
+
+ 00000166						mpeg25SR3:
+ 00000166  BA 00000134 R					mov edx, offset vMpeg25SR3
+ 0000016B  EB 6A						jmp DisplayString3
+
+ 0000016D					mpeg20SR:
+							;copy untouched hex to eax
+ 0000016D  8B C1					mov eax, ecx
+						
+							;assembly header format
+							;isolate F bits to get Sample rate type
+									;AAAAAAAAAAABBCCDEEEEFFGHIIJJKLMM
+ 0000016F  25 00000C00					and eax, 00000000000000000000110000000000b
+ 00000174  C1 E8 0A					shr eax, 10
+
+ 00000177  83 F8 00					cmp eax, 00b
+ 0000017A  74 11					jz mpeg20SR1 ;jump to label that will print ver. 2.5 sample rate 1
+
+ 0000017C  83 F8 01					cmp eax, 01b
+ 0000017F  74 13					jz mpeg20SR2 ;jump to label that will print ver. 2.5 sample rate 2
+
+ 00000181  83 F8 02					cmp eax, 10b
+ 00000184  74 15					jz mpeg20SR3 ;jump to label that will print ver. 2.5 sample rate 3 
+
+							;only other option is the reserved sample rate
+ 00000186  BA 00000119 R				mov edx, offset vMpeg20SRRE
+ 0000018B  EB 4A					jmp DisplayString3
+
+ 0000018D						mpeg20SR1:
+ 0000018D  BA 000000FE R					mov edx, offset vMpeg20SR1
+ 00000192  EB 43						jmp DisplayString3
+
+ 00000194						mpeg20SR2:
+ 00000194  BA 00000107 R					mov edx, offset vMpeg20SR2
+ 00000199  EB 3C						jmp DisplayString3
+
+ 0000019B						mpeg20SR3:
+ 0000019B  BA 00000110 R					mov edx, offset vMpeg20SR3
+ 000001A0  EB 35						jmp DisplayString3
+
+ 000001A2					mpeg10SR:
+							;copy untouched hex to eax
+ 000001A2  8B C1					mov eax, ecx
+						
+							;assembly header format
+							;isolate F bits to get Sample rate type
+									;AAAAAAAAAAABBCCDEEEEFFGHIIJJKLMM
+ 000001A4  25 00000C00					and eax, 00000000000000000000110000000000b
+ 000001A9  C1 E8 0A					shr eax, 10
+
+ 000001AC  83 F8 00					cmp eax, 00b
+ 000001AF  74 11					jz mpeg10SR1 ;jump to label that will print ver. 2.5 sample rate 1
+
+ 000001B1  83 F8 01					cmp eax, 01b
+ 000001B4  74 13					jz mpeg10SR2 ;jump to label that will print ver. 2.5 sample rate 2
+
+ 000001B6  83 F8 02					cmp eax, 10b
+ 000001B9  74 15					jz mpeg10SR3 ;jump to label that will print ver. 2.5 sample rate 3 
+
+							;only other option is the reserved sample rate
+ 000001BB  BA 000000F5 R				mov edx, offset vMpeg10SRRE
+ 000001C0  EB 15					jmp DisplayString3
+
+ 000001C2						mpeg10SR1:
+ 000001C2  BA 000000DA R					mov edx, offset vMpeg10SR1
+ 000001C7  EB 0E						jmp DisplayString3
+
+ 000001C9						mpeg10SR2:
+ 000001C9  BA 000000E3 R					mov edx, offset vMpeg10SR2
+ 000001CE  EB 07						jmp DisplayString3
+
+ 000001D0						mpeg10SR3:
+ 000001D0  BA 000000EC R					mov edx, offset vMpeg10SR3
+ 000001D5  EB 00						jmp DisplayString3
+						
+ 000001D7					DisplayString3:
+ 000001D7  E8 00000000 E				call WriteString
+						
+						;return for Display Sample Rate
+ 000001DC  C3					ret
+
+ 000001DD  E8 00000000 E		call ReadChar
+ 000001E2			main ENDP
+
+				END main
+Microsoft (R) Macro Assembler Version 14.11.25547.0	    11/19/17 23:06:15
+CS2810 Assembler Templat				     Symbols 2 - 1
+
+
+
+
+Structures and Unions:
+
+                N a m e                  Size
+                                         Offset      Type
+
+CONSOLE_CURSOR_INFO  . . . . . .	 00000008
+  dwSize . . . . . . . . . . . .	 00000000	 DWord
+  bVisible . . . . . . . . . . .	 00000004	 DWord
+CONSOLE_SCREEN_BUFFER_INFO . . .	 00000016
+  dwSize . . . . . . . . . . . .	 00000000	 DWord
+  dwCursorPosition . . . . . . .	 00000004	 DWord
+  wAttributes  . . . . . . . . .	 00000008	 Word
+  srWindow . . . . . . . . . . .	 0000000A	 QWord
+  dwMaximumWindowSize  . . . . .	 00000012	 DWord
+COORD  . . . . . . . . . . . . .	 00000004
+  X  . . . . . . . . . . . . . .	 00000000	 Word
+  Y  . . . . . . . . . . . . . .	 00000002	 Word
+FILETIME . . . . . . . . . . . .	 00000008
+  loDateTime . . . . . . . . . .	 00000000	 DWord
+  hiDateTime . . . . . . . . . .	 00000004	 DWord
+FOCUS_EVENT_RECORD . . . . . . .	 00000004
+  bSetFocus  . . . . . . . . . .	 00000000	 DWord
+FPU_ENVIRON  . . . . . . . . . .	 0000001C
+  controlWord  . . . . . . . . .	 00000000	 Word
+  statusWord . . . . . . . . . .	 00000004	 Word
+  tagWord  . . . . . . . . . . .	 00000008	 Word
+  instrPointerOffset . . . . . .	 0000000C	 DWord
+  instrPointerSelector . . . . .	 00000010	 DWord
+  operandPointerOffset . . . . .	 00000014	 DWord
+  operandPointerSelector . . . .	 00000018	 Word
+INPUT_RECORD . . . . . . . . . .	 00000014
+  EventType  . . . . . . . . . .	 00000000	 Word
+  Event  . . . . . . . . . . . .	 00000004	 XmmWord
+  bKeyDown . . . . . . . . . . .	 00000000	 DWord
+  wRepeatCount . . . . . . . . .	 00000004	 Word
+  wVirtualKeyCode  . . . . . . .	 00000006	 Word
+  wVirtualScanCode . . . . . . .	 00000008	 Word
+  uChar  . . . . . . . . . . . .	 0000000A	 Word
+  UnicodeChar  . . . . . . . . .	 00000000	 Word
+  AsciiChar  . . . . . . . . . .	 00000000	 Byte
+  dwControlKeyState  . . . . . .	 0000000C	 DWord
+  dwMousePosition  . . . . . . .	 00000000	 DWord
+  dwButtonState  . . . . . . . .	 00000004	 DWord
+  dwMouseControlKeyState . . . .	 00000008	 DWord
+  dwEventFlags . . . . . . . . .	 0000000C	 DWord
+  dwSize . . . . . . . . . . . .	 00000000	 DWord
+  dwCommandId  . . . . . . . . .	 00000000	 DWord
+  bSetFocus  . . . . . . . . . .	 00000000	 DWord
+KEY_EVENT_RECORD . . . . . . . .	 00000010
+  bKeyDown . . . . . . . . . . .	 00000000	 DWord
+  wRepeatCount . . . . . . . . .	 00000004	 Word
+  wVirtualKeyCode  . . . . . . .	 00000006	 Word
+  wVirtualScanCode . . . . . . .	 00000008	 Word
+  uChar  . . . . . . . . . . . .	 0000000A	 Word
+  UnicodeChar  . . . . . . . . .	 00000000	 Word
+  AsciiChar  . . . . . . . . . .	 00000000	 Byte
+  dwControlKeyState  . . . . . .	 0000000C	 DWord
+MENU_EVENT_RECORD  . . . . . . .	 00000004
+  dwCommandId  . . . . . . . . .	 00000000	 DWord
+MOUSE_EVENT_RECORD . . . . . . .	 00000010
+  dwMousePosition  . . . . . . .	 00000000	 DWord
+  dwButtonState  . . . . . . . .	 00000004	 DWord
+  dwMouseControlKeyState . . . .	 00000008	 DWord
+  dwEventFlags . . . . . . . . .	 0000000C	 DWord
+SMALL_RECT . . . . . . . . . . .	 00000008
+  Left . . . . . . . . . . . . .	 00000000	 Word
+  Top  . . . . . . . . . . . . .	 00000002	 Word
+  Right  . . . . . . . . . . . .	 00000004	 Word
+  Bottom . . . . . . . . . . . .	 00000006	 Word
+SYSTEMTIME . . . . . . . . . . .	 00000010
+  wYear  . . . . . . . . . . . .	 00000000	 Word
+  wMonth . . . . . . . . . . . .	 00000002	 Word
+  wDayOfWeek . . . . . . . . . .	 00000004	 Word
+  wDay . . . . . . . . . . . . .	 00000006	 Word
+  wHour  . . . . . . . . . . . .	 00000008	 Word
+  wMinute  . . . . . . . . . . .	 0000000A	 Word
+  wSecond  . . . . . . . . . . .	 0000000C	 Word
+  wMilliseconds  . . . . . . . .	 0000000E	 Word
+WINDOW_BUFFER_SIZE_RECORD  . . .	 00000004
+  dwSize . . . . . . . . . . . .	 00000000	 DWord
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000193 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 000001E2 Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+CloseFile  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+CloseHandle  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+Clrscr . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+CreateFileA  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+CreateOutputFile . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+Crlf . . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+Delay  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+DumpMem  . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+DumpRegs . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+ExitProcess  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+FileTimeToDosDateTime  . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+FileTimeToSystemTime . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+FlushConsoleInputBuffer  . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+FormatMessageA . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetCommandLineA  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetCommandTail . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetConsoleCP . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetConsoleCursorInfo . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetConsoleMode . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetConsoleScreenBufferInfo . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetDateTime  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetFileTime  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetKeyState  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetLastError . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetLocalTime . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetMaxXY . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetMseconds  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetNumberOfConsoleInputEvents  .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetProcessHeap . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetStdHandle . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetSystemTime  . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetTextColor . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetTickCount . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+Gotoxy . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+HeapAlloc  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+HeapCreate . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+HeapDestroy  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+HeapFree . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+HeapSize . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+IsDigit  . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+LocalFree  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+MessageBoxA  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+MsgBoxAsk  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+MsgBox . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+OpenInputFile  . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+ParseDecimal32 . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+ParseInteger32 . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+PeekConsoleInputA  . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+Random32 . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+RandomRange  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+Randomize  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+ReadChar . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+ReadConsoleA . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+ReadConsoleInputA  . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+ReadDec  . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+ReadFile . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+ReadFloat  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+ReadFromFile . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+ReadHex  . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+ReadInt  . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+ReadKeyFlush . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+ReadKey  . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+ReadString . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+SetConsoleCursorInfo . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+SetConsoleCursorPosition . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+SetConsoleMode . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+SetConsoleScreenBufferSize . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+SetConsoleTextAttribute  . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+SetConsoleTitleA . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+SetConsoleWindowInfo . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+SetFilePointer . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+SetLocalTime . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+SetTextColor . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+ShowFPUStack . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+Sleep  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+StrLength  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+Str_compare  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+Str_copy . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+Str_length . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+Str_trim . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+Str_ucase  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+SystemTimeToFileTime . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WaitMsg  . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteBinB  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteBin . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteChar  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteConsoleA  . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteConsoleOutputAttribute  . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteConsoleOutputCharacterA . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteDec . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteFile  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteFloat . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteHexB  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteHex . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteInt . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteStackFrameName  . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteStackFrame  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteString  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteToFile  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteWindowsMsg  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 000001E2 Public STDCALL
+  DisplayHeader  . . . . . . . .	L Near	 00000043 _TEXT	
+  ReadMP3Header  . . . . . . . .	L Near	 0000007D _TEXT	
+  DisplayVersion . . . . . . . .	L Near	 000000A1 _TEXT	
+  dMpeg25  . . . . . . . . . . .	L Near	 000000BF _TEXT	
+  dMpegRE  . . . . . . . . . . .	L Near	 000000C6 _TEXT	
+  dMpeg20  . . . . . . . . . . .	L Near	 000000CD _TEXT	
+  DisplayString  . . . . . . . .	L Near	 000000D4 _TEXT	
+  DisplayLayer . . . . . . . . .	L Near	 000000DA _TEXT	
+  dLayerRE . . . . . . . . . . .	L Near	 000000FA _TEXT	
+  dLayer3  . . . . . . . . . . .	L Near	 00000101 _TEXT	
+  dLayer2  . . . . . . . . . . .	L Near	 00000108 _TEXT	
+  DisplayString2 . . . . . . . .	L Near	 0000010F _TEXT	
+  DisplaySampleRate  . . . . . .	L Near	 00000115 _TEXT	
+  mpeg25SR . . . . . . . . . . .	L Near	 00000138 _TEXT	
+  mpeg25SR1  . . . . . . . . . .	L Near	 00000158 _TEXT	
+  mpeg25SR2  . . . . . . . . . .	L Near	 0000015F _TEXT	
+  mpeg25SR3  . . . . . . . . . .	L Near	 00000166 _TEXT	
+  mpeg20SR . . . . . . . . . . .	L Near	 0000016D _TEXT	
+  mpeg20SR1  . . . . . . . . . .	L Near	 0000018D _TEXT	
+  mpeg20SR2  . . . . . . . . . .	L Near	 00000194 _TEXT	
+  mpeg20SR3  . . . . . . . . . .	L Near	 0000019B _TEXT	
+  mpeg10SR . . . . . . . . . . .	L Near	 000001A2 _TEXT	
+  mpeg10SR1  . . . . . . . . . .	L Near	 000001C2 _TEXT	
+  mpeg10SR2  . . . . . . . . . .	L Near	 000001C9 _TEXT	
+  mpeg10SR3  . . . . . . . . . .	L Near	 000001D0 _TEXT	
+  DisplayString3 . . . . . . . .	L Near	 000001D7 _TEXT	
+printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
+scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
+wsprintfA  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+ALT_MASK . . . . . . . . . . . .	Number	 00000003h   
+CAPSLOCK_ON  . . . . . . . . . .	Number	 00000080h   
+CREATE_ALWAYS  . . . . . . . . .	Number	 00000002h   
+CREATE_NEW . . . . . . . . . . .	Number	 00000001h   
+CTRL_MASK  . . . . . . . . . . .	Number	 0000000Ch   
+CreateFile . . . . . . . . . . .	Text   	 CreateFileA
+DO_NOT_SHARE . . . . . . . . . .	Number	 00000000h   
+ENABLE_ECHO_INPUT  . . . . . . .	Number	 00000004h   
+ENABLE_LINE_INPUT  . . . . . . .	Number	 00000002h   
+ENABLE_MOUSE_INPUT . . . . . . .	Number	 00000010h   
+ENABLE_PROCESSED_INPUT . . . . .	Number	 00000001h   
+ENABLE_PROCESSED_OUTPUT  . . . .	Number	 00000001h   
+ENABLE_WINDOW_INPUT  . . . . . .	Number	 00000008h   
+ENABLE_WRAP_AT_EOL_OUTPUT  . . .	Number	 00000002h   
+ENHANCED_KEY . . . . . . . . . .	Number	 00000100h   
+FALSE  . . . . . . . . . . . . .	Number	 00000000h   
+FILE_APPEND_DATA . . . . . . . .	Number	 00000004h   
+FILE_ATTRIBUTE_ARCHIVE . . . . .	Number	 00000020h   
+FILE_ATTRIBUTE_COMPRESSED  . . .	Number	 00000800h   
+FILE_ATTRIBUTE_DEVICE  . . . . .	Number	 00000040h   
+FILE_ATTRIBUTE_DIRECTORY . . . .	Number	 00000010h   
+FILE_ATTRIBUTE_ENCRYPTED . . . .	Number	 00004000h   
+FILE_ATTRIBUTE_HIDDEN  . . . . .	Number	 00000002h   
+FILE_ATTRIBUTE_NORMAL  . . . . .	Number	 00000080h   
+FILE_ATTRIBUTE_NOT_CONTENT_INDEXED .	Number	 00002000h   
+FILE_ATTRIBUTE_OFFLINE . . . . .	Number	 00001000h   
+FILE_ATTRIBUTE_READONLY  . . . .	Number	 00000001h   
+FILE_ATTRIBUTE_REPARSE_POINT . .	Number	 00000400h   
+FILE_ATTRIBUTE_SPARSE_FILE . . .	Number	 00000200h   
+FILE_ATTRIBUTE_SYSTEM  . . . . .	Number	 00000004h   
+FILE_ATTRIBUTE_TEMPORARY . . . .	Number	 00000100h   
+FILE_BEGIN . . . . . . . . . . .	Number	 00000000h   
+FILE_CURRENT . . . . . . . . . .	Number	 00000001h   
+FILE_DELETE_CHILD  . . . . . . .	Number	 00000040h   
+FILE_END . . . . . . . . . . . .	Number	 00000002h   
+FILE_READ_DATA . . . . . . . . .	Number	 00000001h   
+FILE_SHARE_DELETE  . . . . . . .	Number	 00000004h   
+FILE_SHARE_READ  . . . . . . . .	Number	 00000001h   
+FILE_SHARE_WRITE . . . . . . . .	Number	 00000002h   
+FILE_WRITE_DATA  . . . . . . . .	Number	 00000002h   
+FOCUS_EVENT  . . . . . . . . . .	Number	 00000010h   
+FORMAT_MESSAGE_ALLOCATE_BUFFER .	Number	 00000100h   
+FORMAT_MESSAGE_FROM_SYSTEM . . .	Number	 00001000h   
+FormatMessage  . . . . . . . . .	Text   	 FormatMessageA
+GENERIC_ALL  . . . . . . . . . .	Number	 10000000h   
+GENERIC_EXECUTE  . . . . . . . .	Number	 20000000h   
+GENERIC_READ . . . . . . . . . .	Number	 -80000000h   
+GENERIC_WRITE  . . . . . . . . .	Number	 40000000h   
+GetCommandLine . . . . . . . . .	Text   	 GetCommandLineA
+HANDLE . . . . . . . . . . . . .	Text   	 DWORD
+HEAP_GENERATE_EXCEPTIONS . . . .	Number	 00000004h   
+HEAP_GROWABLE  . . . . . . . . .	Number	 00000002h   
+HEAP_NO_SERIALIZE  . . . . . . .	Number	 00000001h   
+HEAP_REALLOC_IN_PLACE_ONLY . . .	Number	 00000010h   
+HEAP_ZERO_MEMORY . . . . . . . .	Number	 00000008h   
+IDABORT  . . . . . . . . . . . .	Number	 00000003h   
+IDCANCEL . . . . . . . . . . . .	Number	 00000002h   
+IDCLOSE  . . . . . . . . . . . .	Number	 00000008h   
+IDCONTINUE . . . . . . . . . . .	Number	 0000000Bh   
+IDHELP . . . . . . . . . . . . .	Number	 00000009h   
+IDIGNORE . . . . . . . . . . . .	Number	 00000005h   
+IDNO . . . . . . . . . . . . . .	Number	 00000007h   
+IDOK . . . . . . . . . . . . . .	Number	 00000001h   
+IDRETRY  . . . . . . . . . . . .	Number	 00000004h   
+IDTIMEOUT  . . . . . . . . . . .	Number	 00007D00h   
+IDTRYAGAIN . . . . . . . . . . .	Number	 0000000Ah   
+IDYES  . . . . . . . . . . . . .	Number	 00000006h   
+INVALID_HANDLE_VALUE . . . . . .	Number	 -00000001h   
+KBDOWN_FLAG  . . . . . . . . . .	Number	 00000001h   
+KEY_EVENT  . . . . . . . . . . .	Number	 00000001h   
+KEY_MASKS  . . . . . . . . . . .	Number	 0000001Fh   
+LEFT_ALT_PRESSED . . . . . . . .	Number	 00000002h   
+LEFT_CTRL_PRESSED  . . . . . . .	Number	 00000008h   
+MB_ABORTRETRYIGNORE  . . . . . .	Number	 00000002h   
+MB_APPLMODAL . . . . . . . . . .	Number	 00000000h   
+MB_CANCELTRYCONTINUE . . . . . .	Number	 00000006h   
+MB_DEFBUTTON1  . . . . . . . . .	Number	 00000000h   
+MB_DEFBUTTON2  . . . . . . . . .	Number	 00000100h   
+MB_DEFBUTTON3  . . . . . . . . .	Number	 00000200h   
+MB_DEFBUTTON4  . . . . . . . . .	Number	 00000300h   
+MB_HELP  . . . . . . . . . . . .	Number	 00004000h   
+MB_ICONASTERISK  . . . . . . . .	Number	 00000040h   
+MB_ICONERROR . . . . . . . . . .	Number	 00000010h   
+MB_ICONEXCLAMATION . . . . . . .	Number	 00000030h   
+MB_ICONHAND  . . . . . . . . . .	Number	 00000010h   
+MB_ICONINFORMATION . . . . . . .	Number	 00000040h   
+MB_ICONQUESTION  . . . . . . . .	Number	 00000020h   
+MB_ICONSTOP  . . . . . . . . . .	Number	 00000010h   
+MB_ICONWARNING . . . . . . . . .	Number	 00000030h   
+MB_OKCANCEL  . . . . . . . . . .	Number	 00000001h   
+MB_OK  . . . . . . . . . . . . .	Number	 00000000h   
+MB_RETRYCANCEL . . . . . . . . .	Number	 00000005h   
+MB_SYSTEMMODAL . . . . . . . . .	Number	 00001000h   
+MB_TASKMODAL . . . . . . . . . .	Number	 00002000h   
+MB_USERICON  . . . . . . . . . .	Number	 00000080h   
+MB_YESNOCANCEL . . . . . . . . .	Number	 00000003h   
+MB_YESNO . . . . . . . . . . . .	Number	 00000004h   
+MENU_EVENT . . . . . . . . . . .	Number	 00000008h   
+MOUSE_EVENT  . . . . . . . . . .	Number	 00000002h   
+MessageBox . . . . . . . . . . .	Text   	 MessageBoxA
+NULL . . . . . . . . . . . . . .	Number	 00000000h   
+NUMLOCK_ON . . . . . . . . . . .	Number	 00000020h   
+OPEN_ALWAYS  . . . . . . . . . .	Number	 00000004h   
+OPEN_EXISTING  . . . . . . . . .	Number	 00000003h   
+PeekConsoleInput . . . . . . . .	Text   	 PeekConsoleInputA
+RIGHT_ALT_PRESSED  . . . . . . .	Number	 00000001h   
+RIGHT_CTRL_PRESSED . . . . . . .	Number	 00000004h   
+ReadConsoleInput . . . . . . . .	Text   	 ReadConsoleInputA
+ReadConsole  . . . . . . . . . .	Text   	 ReadConsoleA
+SCROLLLOCK_ON  . . . . . . . . .	Number	 00000040h   
+SHIFT_MASK . . . . . . . . . . .	Number	 00000010h   
+SHIFT_PRESSED  . . . . . . . . .	Number	 00000010h   
+STD_ERROR_HANDLE . . . . . . . .	Number	 -0000000Ch   
+STD_INPUT_HANDLE . . . . . . . .	Number	 -0000000Ah   
+STD_OUTPUT_HANDLE  . . . . . . .	Number	 -0000000Bh   
+SetConsoleTitle  . . . . . . . .	Text   	 SetConsoleTitleA
+TAB  . . . . . . . . . . . . . .	Number	 00000009h   
+TRUE . . . . . . . . . . . . . .	Number	 00000001h   
+TRUNCATE_EXISTING  . . . . . . .	Number	 00000005h   
+VK_11  . . . . . . . . . . . . .	Number	 000000BDh   
+VK_12  . . . . . . . . . . . . .	Number	 000000BBh   
+VK_ADD . . . . . . . . . . . . .	Number	 0000006Bh   
+VK_BACK  . . . . . . . . . . . .	Number	 00000008h   
+VK_CANCEL  . . . . . . . . . . .	Number	 00000003h   
+VK_CAPITAL . . . . . . . . . . .	Number	 00000014h   
+VK_CLEAR . . . . . . . . . . . .	Number	 0000000Ch   
+VK_CONTROL . . . . . . . . . . .	Number	 00000011h   
+VK_DECIMAL . . . . . . . . . . .	Number	 0000006Eh   
+VK_DELETE  . . . . . . . . . . .	Number	 0000002Eh   
+VK_DIVIDE  . . . . . . . . . . .	Number	 0000006Fh   
+VK_DOWN  . . . . . . . . . . . .	Number	 00000028h   
+VK_END . . . . . . . . . . . . .	Number	 00000023h   
+VK_ESCAPE  . . . . . . . . . . .	Number	 0000001Bh   
+VK_EXECUTE . . . . . . . . . . .	Number	 0000002Bh   
+VK_F10 . . . . . . . . . . . . .	Number	 00000079h   
+VK_F11 . . . . . . . . . . . . .	Number	 0000007Ah   
+VK_F12 . . . . . . . . . . . . .	Number	 0000007Bh   
+VK_F13 . . . . . . . . . . . . .	Number	 0000007Ch   
+VK_F14 . . . . . . . . . . . . .	Number	 0000007Dh   
+VK_F15 . . . . . . . . . . . . .	Number	 0000007Eh   
+VK_F16 . . . . . . . . . . . . .	Number	 0000007Fh   
+VK_F17 . . . . . . . . . . . . .	Number	 00000080h   
+VK_F18 . . . . . . . . . . . . .	Number	 00000081h   
+VK_F19 . . . . . . . . . . . . .	Number	 00000082h   
+VK_F1  . . . . . . . . . . . . .	Number	 00000070h   
+VK_F20 . . . . . . . . . . . . .	Number	 00000083h   
+VK_F21 . . . . . . . . . . . . .	Number	 00000084h   
+VK_F22 . . . . . . . . . . . . .	Number	 00000085h   
+VK_F23 . . . . . . . . . . . . .	Number	 00000086h   
+VK_F24 . . . . . . . . . . . . .	Number	 00000087h   
+VK_F2  . . . . . . . . . . . . .	Number	 00000071h   
+VK_F3  . . . . . . . . . . . . .	Number	 00000072h   
+VK_F4  . . . . . . . . . . . . .	Number	 00000073h   
+VK_F5  . . . . . . . . . . . . .	Number	 00000074h   
+VK_F6  . . . . . . . . . . . . .	Number	 00000075h   
+VK_F7  . . . . . . . . . . . . .	Number	 00000076h   
+VK_F8  . . . . . . . . . . . . .	Number	 00000077h   
+VK_F9  . . . . . . . . . . . . .	Number	 00000078h   
+VK_HELP  . . . . . . . . . . . .	Number	 0000002Fh   
+VK_HOME  . . . . . . . . . . . .	Number	 00000024h   
+VK_INSERT  . . . . . . . . . . .	Number	 0000002Dh   
+VK_LBUTTON . . . . . . . . . . .	Number	 00000001h   
+VK_LCONTROL  . . . . . . . . . .	Number	 000000A2h   
+VK_LEFT  . . . . . . . . . . . .	Number	 00000025h   
+VK_LMENU . . . . . . . . . . . .	Number	 000000A4h   
+VK_LSHIFT  . . . . . . . . . . .	Number	 000000A0h   
+VK_MENU  . . . . . . . . . . . .	Number	 00000012h   
+VK_MULTIPLY  . . . . . . . . . .	Number	 0000006Ah   
+VK_NEXT  . . . . . . . . . . . .	Number	 00000022h   
+VK_NUMLOCK . . . . . . . . . . .	Number	 00000090h   
+VK_NUMPAD0 . . . . . . . . . . .	Number	 00000060h   
+VK_NUMPAD1 . . . . . . . . . . .	Number	 00000061h   
+VK_NUMPAD2 . . . . . . . . . . .	Number	 00000062h   
+VK_NUMPAD3 . . . . . . . . . . .	Number	 00000063h   
+VK_NUMPAD4 . . . . . . . . . . .	Number	 00000064h   
+VK_NUMPAD5 . . . . . . . . . . .	Number	 00000065h   
+VK_NUMPAD6 . . . . . . . . . . .	Number	 00000066h   
+VK_NUMPAD7 . . . . . . . . . . .	Number	 00000067h   
+VK_NUMPAD8 . . . . . . . . . . .	Number	 00000068h   
+VK_NUMPAD9 . . . . . . . . . . .	Number	 00000069h   
+VK_PAUSE . . . . . . . . . . . .	Number	 00000013h   
+VK_PRINT . . . . . . . . . . . .	Number	 0000002Ah   
+VK_PRIOR . . . . . . . . . . . .	Number	 00000021h   
+VK_RBUTTON . . . . . . . . . . .	Number	 00000002h   
+VK_RCONTROL  . . . . . . . . . .	Number	 000000A3h   
+VK_RETURN  . . . . . . . . . . .	Number	 0000000Dh   
+VK_RIGHT . . . . . . . . . . . .	Number	 00000027h   
+VK_RMENU . . . . . . . . . . . .	Number	 000000A5h   
+VK_RSHIFT  . . . . . . . . . . .	Number	 000000A1h   
+VK_SCROLL  . . . . . . . . . . .	Number	 00000091h   
+VK_SEPARATER . . . . . . . . . .	Number	 0000006Ch   
+VK_SHIFT . . . . . . . . . . . .	Number	 00000010h   
+VK_SNAPSHOT  . . . . . . . . . .	Number	 0000002Ch   
+VK_SPACE . . . . . . . . . . . .	Number	 00000020h   
+VK_SUBTRACT  . . . . . . . . . .	Number	 0000006Dh   
+VK_TAB . . . . . . . . . . . . .	Number	 00000009h   
+VK_UP  . . . . . . . . . . . . .	Number	 00000026h   
+WINDOW_BUFFER_SIZE_EVENT . . . .	Number	 00000004h   
+WriteConsoleOutputCharacter  . .	Text   	 WriteConsoleOutputCharacterA
+WriteConsole . . . . . . . . . .	Text   	 WriteConsoleA
+black  . . . . . . . . . . . . .	Number	 00000000h   
+blue . . . . . . . . . . . . . .	Number	 00000001h   
+brown  . . . . . . . . . . . . .	Number	 00000006h   
+cyan . . . . . . . . . . . . . .	Number	 00000003h   
+exit . . . . . . . . . . . . . .	Text   	 INVOKE ExitProcess,0
+gray . . . . . . . . . . . . . .	Number	 00000008h   
+green  . . . . . . . . . . . . .	Number	 00000002h   
+lightBlue  . . . . . . . . . . .	Number	 00000009h   
+lightCyan  . . . . . . . . . . .	Number	 0000000Bh   
+lightGray  . . . . . . . . . . .	Number	 00000007h   
+lightGreen . . . . . . . . . . .	Number	 0000000Ah   
+lightMagenta . . . . . . . . . .	Number	 0000000Dh   
+lightRed . . . . . . . . . . . .	Number	 0000000Ch   
+magenta  . . . . . . . . . . . .	Number	 00000005h   
+red  . . . . . . . . . . . . . .	Number	 00000004h   
+vAssignment  . . . . . . . . . .	Byte	 0000001A _DATA	
+vLayer1  . . . . . . . . . . . .	Byte	 0000015D _DATA	
+vLayer2  . . . . . . . . . . . .	Byte	 0000016A _DATA	
+vLayer3  . . . . . . . . . . . .	Byte	 00000177 _DATA	
+vLayerRE . . . . . . . . . . . .	Byte	 00000184 _DATA	
+vMpeg10SR1 . . . . . . . . . . .	Byte	 000000DA _DATA	
+vMpeg10SR2 . . . . . . . . . . .	Byte	 000000E3 _DATA	
+vMpeg10SR3 . . . . . . . . . . .	Byte	 000000EC _DATA	
+vMpeg10SRRE  . . . . . . . . . .	Byte	 000000F5 _DATA	
+vMpeg10  . . . . . . . . . . . .	Byte	 000000A1 _DATA	
+vMpeg20SR1 . . . . . . . . . . .	Byte	 000000FE _DATA	
+vMpeg20SR2 . . . . . . . . . . .	Byte	 00000107 _DATA	
+vMpeg20SR3 . . . . . . . . . . .	Byte	 00000110 _DATA	
+vMpeg20SRRE  . . . . . . . . . .	Byte	 00000119 _DATA	
+vMpeg20  . . . . . . . . . . . .	Byte	 00000090 _DATA	
+vMpeg25SR1 . . . . . . . . . . .	Byte	 00000122 _DATA	
+vMpeg25SR2 . . . . . . . . . . .	Byte	 0000012B _DATA	
+vMpeg25SR3 . . . . . . . . . . .	Byte	 00000134 _DATA	
+vMpeg25SRRE  . . . . . . . . . .	Byte	 0000013C _DATA	
+vMpeg25  . . . . . . . . . . . .	Byte	 0000007F _DATA	
+vMpegRESR  . . . . . . . . . . .	Byte	 00000145 _DATA	
+vMpegRE  . . . . . . . . . . . .	Byte	 000000B2 _DATA	
+vName  . . . . . . . . . . . . .	Byte	 00000032 _DATA	
+vPrompt  . . . . . . . . . . . .	Byte	 00000045 _DATA	
+vSampleHeader  . . . . . . . . .	Byte	 000000C0 _DATA	
+vSemester  . . . . . . . . . . .	Byte	 00000000 _DATA	
+white  . . . . . . . . . . . . .	Number	 0000000Fh   
+wsprintf . . . . . . . . . . . .	Text   	 wsprintfA
+yellow . . . . . . . . . . . . .	Number	 0000000Eh   
+
+	   0 Warnings
+	   0 Errors

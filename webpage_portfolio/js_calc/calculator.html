@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<meta charset="UTF-8">
+
+<title>JS Calculator</title>
+
+<meta name="description" content="A simple calculator programmed using JavaScript">
+<meta name="keywords" content="JavaScript, Calculator">
+<meta name="author" content= "Stephen Richardson">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/png" href="../images/n7_icon.png">
+<link rel="stylesheet" type="text/css" href="../style.css">
+
+<body>
+
+	<script src="calc_script.js"></script>
+  
+  <header>
+    <h1>JavaScript Calculator</h1>
+	</header>
+  
+	<nav class="dropdown">
+		<ul>
+			<li class="left"><a href="../index.html">Home</a></li>
+			<li><a href="../my_hobbies.html">My Hobbies</a></li>
+			<li class="right"><a href="../fav_movies.html">My Favorite Movies</a></li>
+			<div class="dropdown_content">
+				<li class="left"><a href="../youth_shelter_home\index.html">Youth Shelter Home Page</a></li>
+				<li><a href="../pet_comp_form/pet_comp_form.html">Pet Competition</a></li>
+				<li class="right"><a href="../bloodborne_mad_lib/bloodborne_mad_lib.html">The Hunt Begins Mad Lib</a></li>
+				<li class="left"><a href="../evolution_of_Samus/metroid_slideshow.html">Samus Through the Years</a></li>
+				<li><a href="calculator.html" class="current">JavaScript Calculator</a></li>
+				<li class="right"><a href="../animation_page/animation_page.html">Geeky Animations!</a></li>
+			</div>
+		</ul>
+	</nav>
+	
+	<section>
+		<table id="calc">
+			<tr>
+				<td colspan="4" class="calc"><input type="text" id="calc_screen" readonly></td>
+			</tr>
+			<tr>
+				<td class="calc"><button type="button" value="1" class="buttons">1</button></td>
+				<td class="calc"><button type="button" value="2" class="buttons">2</button></td>
+				<td class="calc"><button type="button" value="3" class="buttons">3</button></td>
+				<td class="calc"><button type="button" value="+" class="buttons">+</button></td>
+			</tr>
+			<tr>
+				<td class="calc"><button type="button" value="4" class="buttons">4</button></td>
+				<td class="calc"><button type="button" value="5" class="buttons">5</button></td>
+				<td class="calc"><button type="button" value="6" class="buttons">6</button></td>
+				<td class="calc"><button type="button" value="-" class="buttons">-</button></td>
+			</tr>
+			<tr>
+				<td class="calc"><button type="button" value="7" class="buttons">7</button></td>
+				<td class="calc"><button type="button" value="8" class="buttons">8</button></td>
+				<td class="calc"><button type="button" value="9" class="buttons">9</button></td>
+				<td class="calc"><button type="button" value="*" class="buttons">*</button></td>
+			</tr>
+			<tr>
+				<td class="calc"><button type="button" id="clear" class="other">C</button></td>
+				<td class="calc"><button type="button" value="0" class="buttons">0</button></td>
+				<td class="calc"><button type="button" value="." class="buttons">.</button></td>
+				<td class="calc"><button type="button" value="/" class="buttons">/</button></td>
+			</tr>
+			<tr>
+				<td class="calc"><button type="button" id="area" class="other">area</button></td>
+				<td class="calc"><button type="button" id="halve" class="other">1/2</button></td>
+				<td class="calc"><button type="button" id="square" class="other">X<sup>2</sup></button></td>
+				<td class="calc"><button type="button" id="equals" class="other">=</button></td>
+			</tr>
+		</table>
+	</section>
+	
+	<footer>
+		<p>Written by Stephen Richardson July 2017</p>
+	</footer>
+</body>
+</html>

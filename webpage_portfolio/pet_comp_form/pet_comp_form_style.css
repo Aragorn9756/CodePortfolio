@@ -1,0 +1,171 @@
+/***colors
+jade      light jade     dark green    tan       skin tone
+#4A581D   #90A755        #373F0E       #BF7347   #F2B48D
+***/
+* {
+	box-sizing: border-box;
+}
+
+html {
+	background-color: #4A581D;
+	padding: 0px;
+}
+
+body {
+	width: 750px;
+	margin: 0px auto;
+	background-color: #F2B48D ;
+	padding: 1px 25px 25px 25px;
+}
+
+header {
+	margin: -25px -25px 0px -25px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	border-bottom: groove #373F0E 4px;
+	background: url(Sheltie_dog_agility_opt.jpg) #90A755 no-repeat;
+	background-position: 22px 33px;
+}
+
+span {
+	color: red;
+}
+
+/***navigation***/
+nav ul, nav li {
+  margin: 0px -25px;
+  padding: 0px;
+  list-style-type: none;
+}
+  
+nav li{
+  height: 40px;
+  line-height: 40px;
+}
+
+nav a{
+  text-decoration: none;
+  display: block;
+  padding-left: 15px;
+	color: #000000;
+}
+
+nav a:hover {
+  background-color: #90A755;
+}
+
+nav a.current {
+  background: #BF7347;
+  cursor: default;
+}
+
+nav li {
+  display: inline-block;
+  text-align: center;
+  width: 250px;
+  margin-right: -1px;
+  margin-left: -3px;
+}
+
+nav li.left {
+	margin-left: 0px;
+}
+nav li.right {
+	margin-right: 0px;
+}
+
+/*dropdown within nav*/
+.dropdown {
+	position: relative;
+}
+
+.dropdown_content{
+	display: none;
+	position: absolute;
+	background-color: #F2B48D;
+	box-shadow: 0px 2px 5px 2px #101012;
+	z-index: 1;
+	margin-right: -25px;
+}
+
+.dropdown:hover .dropdown_content{
+	display: block;
+}
+
+/***lining things up***/
+#pet_name {
+	margin-top: 20px;
+}
+
+h1, h2 {
+		text-align: center;
+}
+
+div.contest_info {
+	margin-left: 35px;
+}
+
+input[type="checkbox"] {
+	margin-top: 15px;
+}
+
+h2 {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+h4 {
+	margin-top: -5px;
+}
+
+.contact label {
+	display: inline-block;
+	width: 200px;
+}
+
+.contest_info ul {
+	list-style-type: none;
+}
+
+#sing_file {
+	margin-left: 40px;
+}
+
+textarea {
+	margin-top: -10px;
+}
+
+.contest_info label {
+	display: inline-block;
+	width: 205px;
+	margin-right: 0px;
+}
+
+img {
+	float: right;
+}
+
+.clear {
+	clear: right;
+}
+
+/*** input style***/
+
+input, textarea, select {
+	background-color: #90A755;
+	border: groove #373F0E;
+	border-radius: 3px;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+	background-color: #BF7347;
+}
+
+/***COLOR!!!***/
+h1 {
+	color: #373F0E;
+}
+footer {
+	text-align: center;
+}

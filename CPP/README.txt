@@ -1,0 +1,1 @@
+Code I wrote while learning C++. The Bookstore was written entirely from scratch for a final project. All the others were projects learning various data algorithms. For those I was given a skeleton that made it easy to debug, but had to write the actual algorithm myself.
