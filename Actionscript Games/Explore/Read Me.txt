@@ -1,0 +1,1 @@
+This is a copy of the code I created for my first ever game, using actionscript and adobe Animate.

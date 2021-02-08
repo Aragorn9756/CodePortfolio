@@ -1,0 +1,1 @@
+This was a group project. In this project, I was responsible for writing the Santa state machine that animated and moved santa around, as well as creating the skeleton for the Child behavior state machine. I was further responsible for the child script, player script and most of the debugging.
